@@ -13,10 +13,20 @@ class animation:
 
 class keyframe:
     """create a keyframe that holds data about the function, length, etc."""
-    def __init__(self, min=(-1,-1), max=(1,1),function = lambda x:x, length = 60):
+    def __init__(self, min=(-1,-1), max=(1,1), function=lambda x:x, length = 60):
         self.xmin, self.ymin = min
         self.xmax, self.ymax = max
+        self.funnction = function
     
-    def render(self, size=(1920,1080)):
-        #render stuff
-        pass
+    def calculate(self, size=(1920,1080)):
+        """calculate the values of the function"""
+        print("╔══════════════════════════════")
+        print("║  calculating...  ")
+        print("║  xmin: " + self.xmin + "; ymin: " + self.ymin)
+        print("║  xmax: " + self.xmax + "; ymax: " + self.ymax)
+        print("║  function: " + self.function)
+
+        #actually calculate stuff
+
+        print("║  Done!")
+        print("╚══════════════════════════════")
