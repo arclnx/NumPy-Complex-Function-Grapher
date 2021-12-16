@@ -8,5 +8,6 @@ class animation:
 
 class keyframe:
     """create a keyframe that holds data about the function, length, etc."""
-    def __init__(self, blCorner=(-1,-1), trCorner=(1,1),function = lambda x:x, length = 60):
-        pass
+    def __init__(self, min=(-1,-1), max=(1,1),function = lambda x:x, length = 60):
+        self.xmin, self.ymin = min
+        self.xmax, self.ymax = max
