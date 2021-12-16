@@ -26,7 +26,11 @@ class keyframe:
         print("║  xmax: " + self.xmax + "; ymax: " + self.ymax)
         print("║  function: " + self.function)
 
-        x = np.linspace()
+        real = np.linspace(self.xmin, self.xmax, size[0])
+        complex = np.linspace(self.ymin, self.ymax, size[1])
+        plane = np.meshgrid(real, complex)
 
         print("║  Done!")
         print("╚══════════════════════════════")
+        
+a = keyframe()
