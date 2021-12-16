@@ -6,6 +6,11 @@ class animation:
         self.width, self.height = width, height #resolution of animation in pixels
         self.keyframes = [] #list of all keyframes
 
+    def addKeyframe(self, keyframe):
+        self.keyframes.append(keyframe)
+        pass
+
+
 class keyframe:
     """create a keyframe that holds data about the function, length, etc."""
     def __init__(self, min=(-1,-1), max=(1,1),function = lambda x:x, length = 60):
@@ -13,5 +18,5 @@ class keyframe:
         self.xmax, self.ymax = max
     
     def render(self, size=(1920,1080)):
-        
+        #render stuff
         pass
