@@ -13,8 +13,8 @@ class animation:
 
 class keyframe:
     """create a keyframe that holds data about the function, length, etc."""
-    def __init__(self, min=(-1,-1), max=(1,1), function=lambda x:x, length = 60):
-        self.xmin, self.ymin = min
+    def __init__(self, min=(-1,-1), max=(1,1), function=lambda x:x, length = 60): 
+        self.xmin, self.ymin = min #min and max should be a pair of reals, not an imaginry 
         self.xmax, self.ymax = max
         self.funnction = function
     
@@ -26,7 +26,7 @@ class keyframe:
         print("║  xmax: " + self.xmax + "; ymax: " + self.ymax)
         print("║  function: " + self.function)
 
-        #actually calculate stuff
+        x = np.linspace()
 
         print("║  Done!")
         print("╚══════════════════════════════")
