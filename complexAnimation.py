@@ -11,3 +11,7 @@ class keyframe:
     def __init__(self, min=(-1,-1), max=(1,1),function = lambda x:x, length = 60):
         self.xmin, self.ymin = min
         self.xmax, self.ymax = max
+    
+    def render(self, size=(1920,1080)):
+        
+        pass
