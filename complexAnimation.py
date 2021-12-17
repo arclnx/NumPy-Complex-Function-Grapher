@@ -9,6 +9,9 @@ class animation:
     def addKeyframe(self, keyframe):
         self.keyframes.append(keyframe)
         pass
+    
+    def render(self, ):
+        pass
 
 
 class keyframe:
@@ -38,9 +41,10 @@ class keyframe:
         # map function over the plane
         cplane = self.function(cplane)
 
-        print(cplane)
         print("║  Done!")
         print("╚══════════════════════════════")
+        
+        return cplane
         
 a = keyframe()
 print("go")
