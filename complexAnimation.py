@@ -16,21 +16,24 @@ class keyframe:
     def __init__(self, min=(-1,-1), max=(1,1), function=lambda x:x, length = 60): 
         self.xmin, self.ymin = min #min and max should be a pair of reals, not an imaginry 
         self.xmax, self.ymax = max
-        self.funnction = function
+        self.function = function
     
     def calculate(self, size=(1920,1080)):
         """calculate the values of the function"""
         print("╔══════════════════════════════")
         print("║  calculating...  ")
-        print("║  xmin: " + self.xmin + "; ymin: " + self.ymin)
-        print("║  xmax: " + self.xmax + "; ymax: " + self.ymax)
-        print("║  function: " + self.function)
+        print("║  xmin: " + str(self.xmin) + "; ymin: " + str(self.ymin))
+        print("║  xmax: " + str(self.xmax) + "; ymax: " + str(self.ymax))
+        print("║  function: " + str(self.function))
 
+        #generate a 2d matrix of complex numbers re
         real = np.linspace(self.xmin, self.xmax, size[0])
         complex = np.linspace(self.ymin, self.ymax, size[1])
-        plane = np.meshgrid(real, complex)
-
+        real, complex = np.meshgrid(real, complex)
+        plane = real + complex*1j
+        print(plane)
         print("║  Done!")
         print("╚══════════════════════════════")
         
 a = keyframe()
+a.calculate(size=(3,3))
