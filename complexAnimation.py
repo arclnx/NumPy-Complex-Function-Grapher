@@ -2,21 +2,21 @@ import numpy as np
 
 class animation:
     """Create an animation that holds keyframes"""
-    def __init__(self, width=1920, height=1080, colorfunc=None):
-        self.width, self.height = width, height #resolution of animation in pixels
+    def __init__(self, colorfunc=None):
         self.keyframes = [] #list of all keyframes
 
     def addKeyframe(self, keyframe):
         self.keyframes.append(keyframe)
         pass
     
-    def render(self, ):
-        pass
+    def render(self, size=(1920,1080)):
+        keyframeData = np.array([keyframe.calculate(size) for keyframe in self.keyframes])
+        
 
 
 class keyframe:
     """create a keyframe that holds data about the function, length, etc."""
-    def __init__(self, min=(-1,-1), max=(1,1), function=lambda x:x, length = 60): 
+    def __init__(self, min=(-1,-1), max=(1,1), function=lambda x:x, length=60): 
         self.xmin, self.ymin = min # min and max should be a pair of reals, not an imaginry 
         self.xmax, self.ymax = max
         self.function = function
@@ -46,8 +46,7 @@ class keyframe:
         
         return cplane
         
+myanim = animation()
 a = keyframe()
-print("go")
-for i in range(1000):
-    a.calculate()
-print("done!")
+myanim.addKeyframe(a)
+myanim.render()
