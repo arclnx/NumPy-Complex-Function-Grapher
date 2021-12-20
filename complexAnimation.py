@@ -13,7 +13,6 @@ class animation:
         keyframeData = np.array([keyframe.calculate(size) for keyframe in self.keyframes])
         
 
-
 class keyframe:
     """create a keyframe that holds data about the function, length, etc."""
     def __init__(self, min=(-1,-1), max=(1,1), function=lambda x:x, length=60): 
