@@ -1,17 +1,36 @@
 import numpy as np
+from numpy.core.function_base import linspace
 
 class animation:
     """Create an animation that holds keyframes"""
     def __init__(self, colorfunc=None):
-        self.keyframes = [] #list of all keyframes
+        self.keyframes = [] # list of all keyframes
 
     def addKeyframe(self, keyframe):
         self.keyframes.append(keyframe)
         pass
-    
+
     def render(self, size=(1920,1080)):
+        # put the data for each keyframe in a list
         keyframeData = np.array([keyframe.calculate(size) for keyframe in self.keyframes])
-        
+        # put each length into a list
+        keyframeLengths = np.array([keyframe.length for keyframe in self.keyframes])
+        # set up frame data array
+        frameData = np.empty((0,size[0],size[1]))
+        # loop through each keyframe, generate frames, and append them to the end of frameData
+        for frameIndex in range(len(self.keyframes)-1):
+            print(frameData)
+            print("------")
+            print(np.concatenate((frameData,frameData)))
+            frameData = np.concatenate((frameData,
+                                        np.linspace(start=keyframeData[frameIndex],
+                                                    stop=keyframeData[frameIndex+1],
+                                                    num=keyframeLengths[frameIndex],
+                                                    endpoint=False)))
+        frameData = np.concatenate((frameData, np.array([keyframeData[-1]])))
+        output = open(r"C:\Users\trevo\Desktop\output.txt", "w")
+        output.write(str(frameData))
+        output.close()
 
 class keyframe:
     """create a keyframe that holds data about the function, length, etc."""
@@ -21,6 +40,7 @@ class keyframe:
         self.function = function
         self.length = length # the number of frames between this keyframe and the next
                              # [start,stop), except for last keyframe, which only renders its first frame
+
     
     def calculate(self, size=(1920,1080)):
         """calculate the values of the function"""
@@ -41,11 +61,17 @@ class keyframe:
         cplane = self.function(cplane)
 
         print("║  Done!")
+        print(type(cplane[0,0]))
         print("╚══════════════════════════════")
         
-        return cplane
+        return(cplane)
+        
+        
         
 myanim = animation()
-a = keyframe()
+a = keyframe(length=4)
+b = keyframe(length=4)
 myanim.addKeyframe(a)
-myanim.render()
+#myanim.addKeyframe(b)
+print(a.length)
+myanim.render((2,2))
