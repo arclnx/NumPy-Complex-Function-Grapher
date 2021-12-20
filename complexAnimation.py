@@ -16,12 +16,18 @@ class animation:
         # put each length into a list
         keyframeLengths = np.array([keyframe.length for keyframe in self.keyframes])
         # set up frame data array
-        frameData = np.empty((0,size[0],size[1]))
+        frameData = np.empty((0,size[1],size[0]))
         # loop through each keyframe, generate frames, and append them to the end of frameData
         for frameIndex in range(len(self.keyframes)-1):
-            #print(frameData)
-            #print("------")
-            #print(np.concatenate((frameData,frameData)))
+            print(frameData)
+            print(frameData.shape)
+            print("------")
+            debug=np.linspace(start=keyframeData[frameIndex],
+                                                    stop=keyframeData[frameIndex+1],
+                                                    num=keyframeLengths[frameIndex]-1,
+                                                    endpoint=False)
+            print(debug.shape)
+            print(debug)
             frameData = np.concatenate((frameData,
                                         np.linspace(start=keyframeData[frameIndex],
                                                     stop=keyframeData[frameIndex+1],
@@ -45,7 +51,7 @@ class keyframe:
     def calculate(self, size=(1920,1080)):
         """calculate the values of the function"""
 
-        print("╔══════════════════════════════")
+
         print("║  calculating keyframe...  ")
         print("║  xmin: " + str(self.xmin) + "; ymin: " + str(self.ymin))
         print("║  xmax: " + str(self.xmax) + "; ymax: " + str(self.ymax))
@@ -73,4 +79,4 @@ b = keyframe(length=4)
 myanim.addKeyframe(a)
 myanim.addKeyframe(b)
 print(a.length)
-myanim.render((2,2))
+myanim.render((2,4))
