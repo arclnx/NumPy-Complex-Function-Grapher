@@ -19,13 +19,13 @@ class animation:
         frameData = np.empty((0,size[0],size[1]))
         # loop through each keyframe, generate frames, and append them to the end of frameData
         for frameIndex in range(len(self.keyframes)-1):
-            print(frameData)
-            print("------")
-            print(np.concatenate((frameData,frameData)))
+            #print(frameData)
+            #print("------")
+            #print(np.concatenate((frameData,frameData)))
             frameData = np.concatenate((frameData,
                                         np.linspace(start=keyframeData[frameIndex],
                                                     stop=keyframeData[frameIndex+1],
-                                                    num=keyframeLengths[frameIndex],
+                                                    num=keyframeLengths[frameIndex]-1,
                                                     endpoint=False)))
         frameData = np.concatenate((frameData, np.array([keyframeData[-1]])))
         output = open(r"C:\Users\trevo\Desktop\output.txt", "w")
@@ -46,7 +46,7 @@ class keyframe:
         """calculate the values of the function"""
 
         print("╔══════════════════════════════")
-        print("║  calculating...  ")
+        print("║  calculating keyframe...  ")
         print("║  xmin: " + str(self.xmin) + "; ymin: " + str(self.ymin))
         print("║  xmax: " + str(self.xmax) + "; ymax: " + str(self.ymax))
         print("║  function: " + str(self.function))
@@ -61,7 +61,6 @@ class keyframe:
         cplane = self.function(cplane)
 
         print("║  Done!")
-        print(type(cplane[0,0]))
         print("╚══════════════════════════════")
         
         return(cplane)
@@ -72,6 +71,6 @@ myanim = animation()
 a = keyframe(length=4)
 b = keyframe(length=4)
 myanim.addKeyframe(a)
-#myanim.addKeyframe(b)
+myanim.addKeyframe(b)
 print(a.length)
 myanim.render((2,2))
