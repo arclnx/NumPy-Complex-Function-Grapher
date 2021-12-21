@@ -65,7 +65,6 @@ class keyframe:
         
         # map function over the plane
         cplane = self.function(cplane)
-
         print("║  Done!")
         print("╚══════════════════════════════")
         
