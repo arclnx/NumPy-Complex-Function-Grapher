@@ -51,7 +51,7 @@ class keyframe:
     def calculate(self, size=(1920,1080)):
         """calculate the values of the function"""
 
-
+        print("╔══════════════════════════════")
         print("║  calculating keyframe...  ")
         print("║  xmin: " + str(self.xmin) + "; ymin: " + str(self.ymin))
         print("║  xmax: " + str(self.xmax) + "; ymax: " + str(self.ymax))
