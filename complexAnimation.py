@@ -11,23 +11,15 @@ class animation:
         pass
 
     def render(self, size=(1920,1080)):
-        # put the data for each keyframe in a list
+        # create an array of the data fro each keyframe
         keyframeData = np.array([keyframe.calculate(size) for keyframe in self.keyframes])
-        # put each length into a list
+        # create an array of the lengths of each keyframe
         keyframeLengths = np.array([keyframe.length for keyframe in self.keyframes])
-        # set up frame data array
+        # set up frame data array as an empty 3d array with the correct width and height, and a depth of 0
         frameData = np.empty((0,size[0],size[1]))
-        # loop through each keyframe, generate frames, and append them to the end of frameData
+        # loop through each keyframe, interpolate the interframes, and append them to frameData
         for frameIndex in range(len(self.keyframes)-1):
-            #print(frameData)
-            #print(frameData.shape)
-            #print("------")
-            #debug=np.linspace(start=keyframeData[frameIndex],
-            #                                        stop=keyframeData[frameIndex+1],
-            #                                        num=keyframeLengths[frameIndex]-1,
-            #                                        endpoint=False)
-            #print(debug.shape)
-            #print(debug)
+
             frameData = np.concatenate((frameData,
                                         np.linspace(start=keyframeData[frameIndex],
                                                     stop=keyframeData[frameIndex+1],
@@ -40,10 +32,11 @@ class animation:
 
 class keyframe:
     """create a keyframe that holds data about the function, length, etc."""
-    def __init__(self, min=(-1,-1), max=(1,1), function=lambda x:x, length=60): 
+    def __init__(self, min=(-1,-1), max=(1,1), function="x", length=60): 
         self.xmin, self.ymin = min # min and max should be a pair of reals, not an imaginry 
         self.xmax, self.ymax = max
-        self.function = function
+        self.function = lambda x:eval(function)
+        self.funcstring = function
         self.length = length # the number of frames between this keyframe and the next
                              # [start,stop), except for last keyframe, which only renders its first frame
 
@@ -55,7 +48,7 @@ class keyframe:
         print("║  calculating keyframe...  ")
         print("║  xmin: " + str(self.xmin) + "; ymin: " + str(self.ymin))
         print("║  xmax: " + str(self.xmax) + "; ymax: " + str(self.ymax))
-        print("║  function: " + str(self.function))
+        print("║  function: f(x)=" + self.funcstring)
 
         # generate a 2d matrix of complex numbers
         real = np.linspace(self.xmin, self.xmax, size[0])
