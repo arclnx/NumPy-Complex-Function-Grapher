@@ -16,18 +16,18 @@ class animation:
         # put each length into a list
         keyframeLengths = np.array([keyframe.length for keyframe in self.keyframes])
         # set up frame data array
-        frameData = np.empty((0,size[1],size[0]))
+        frameData = np.empty((0,size[0],size[1]))
         # loop through each keyframe, generate frames, and append them to the end of frameData
         for frameIndex in range(len(self.keyframes)-1):
-            print(frameData)
-            print(frameData.shape)
-            print("------")
-            debug=np.linspace(start=keyframeData[frameIndex],
-                                                    stop=keyframeData[frameIndex+1],
-                                                    num=keyframeLengths[frameIndex]-1,
-                                                    endpoint=False)
-            print(debug.shape)
-            print(debug)
+            #print(frameData)
+            #print(frameData.shape)
+            #print("------")
+            #debug=np.linspace(start=keyframeData[frameIndex],
+            #                                        stop=keyframeData[frameIndex+1],
+            #                                        num=keyframeLengths[frameIndex]-1,
+            #                                        endpoint=False)
+            #print(debug.shape)
+            #print(debug)
             frameData = np.concatenate((frameData,
                                         np.linspace(start=keyframeData[frameIndex],
                                                     stop=keyframeData[frameIndex+1],
@@ -60,9 +60,9 @@ class keyframe:
         # generate a 2d matrix of complex numbers
         real = np.linspace(self.xmin, self.xmax, size[0])
         complex = np.linspace(self.ymin, self.ymax, size[1])
-        real, complex = np.meshgrid(real, complex)
+        real, complex = np.meshgrid(real, complex, indexing='ij')
         cplane = real + complex*1j
-        
+
         # map function over the plane
         cplane = self.function(cplane)
         print("║  Done!")
