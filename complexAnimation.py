@@ -1,5 +1,7 @@
+import colorsys
 import numpy as np
-from numpy.core.function_base import linspace
+from PIL import Image as im
+import color
 
 class animation:
     """Create an animation that holds keyframes"""
@@ -62,9 +64,10 @@ class keyframe:
         print("╚══════════════════════════════")
         
         return(cplane)
-        
-        
-        
+
+
+
+
 myanim = animation()
 a = keyframe(length=4)
 b = keyframe(length=4)

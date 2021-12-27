@@ -1,5 +1,4 @@
 import numpy as np
-import colorsys as colorsys
 import timeit
 
 def hsl_to_rgb2(H,S,L):
@@ -15,7 +14,7 @@ def hsl_to_rgb2(H,S,L):
         return L - a * max2(-1,min2(k-3,min2(9-k,1)))
     return (f(0),f(8),f(4))
 
-def ComplexToRGB2(complex):
+def ComplexToRGB(complex):
     angle = ((np.angle(complex,deg=True)+360)%360)/360
     magnitude = np.absolute(complex)
     rawColor =  hsl_to_rgb2(angle,1-np.log2(magnitude)%1,.5)
@@ -28,10 +27,9 @@ cplane = real + complex*1j
 
 print(cplane)
 #print(ComplexToRGB2(foo))
-#print(colorsys.hls_to_rgb(.5,.6,1))
 print("start")
 
 for i in range(10):
-    ComplexToRGB2(cplane)
+    ComplexToRGB(cplane)
 
 print("done")
