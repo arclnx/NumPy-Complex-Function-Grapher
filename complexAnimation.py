@@ -1,6 +1,6 @@
 import numpy as np
 from PIL import Image
-import color
+import color, render
 
 class animation:
     """Create an animation that holds keyframes"""
@@ -11,12 +11,14 @@ class animation:
         self.keyframes.append(keyframe)
 
     def render(self, size=(1920,1080), folderPath=""):
-        # create an array of the data fro each keyframe
+        """render an animation, and save the frames in the specified location"""
+        
+        # create an array of the data for each keyframe
         keyframeData = np.array([keyframe.calculate(size) for keyframe in self.keyframes])
         
         # create an array of the lengths of each keyframe
         keyframeLengths = np.array([keyframe.length for keyframe in self.keyframes])
-        print(keyframeLengths)
+
         # set up frame data array as an empty 3d array with the correct width and height, and a depth of 0
         frameData = np.empty((0,size[0],size[1]))
         
@@ -30,28 +32,20 @@ class animation:
                                      num=keyframeLengths[keyFrameIndex]-1,
                                      endpoint=False)
             for frame in frameData:
-
+                    
+                render.render(frameData=frame, folderPath=folderPath, frameNumber= frameNumber)
                 # apply the complex->RGB function, then transpose to get the right shape
-                renderedFrame = color.ComplexToRGB(frame)
+                #renderedFrame = color.ComplexToRGB(frame)
 
                 # convert the np.ndarray to a PIL image
-                frameImage = Image.fromarray(renderedFrame.T,"RGB")
-                
-                # set the filepath
-                filePath = "C:\\Users\\trevo\\Desktop\\Grapher_Output\\" + str(frameNumber).rjust(4,"0") + ".png"
+                #frameImage = Image.fromarray(renderedFrame.T,"RGB")
                
                 # save the image
-                frameImage.save(filePath)
-                print("saved at: " + filePath)                
+                #frameImage.save(filePath)
+                print("╠══════════════════════════════")
+                print("║ saved a: " + folderPath + "\\" + str(frameNumber).rjust(4,"0") + ".png")              
 
                 frameNumber += 1
-
-
-        #frameData = np.concatenate((frameData, np.array([keyframeData[-1]])))
-        #output = open(r"C:\Users\trevo\Desktop\output.txt", "w")
-        #output.write(str(frameData))
-        #output.close()
-        #print(frameData.shape)
 
 class keyframe:
     """create a keyframe that holds data about the function, length, etc."""
@@ -86,12 +80,9 @@ class keyframe:
         
         return(cplane)
 
-
-print("------")
-
 myanim = animation()
-a = keyframe(length=4)
-b = keyframe(length=4)
+a = keyframe(length=10)
+b = keyframe(function = "x**2", length=4)
 myanim.addKeyframe(a)
 myanim.addKeyframe(b)
-myanim.render((5,5))
+myanim.render(size=(1080,1080), folderPath="C:\\Users\\trevo\\Desktop\\Grapher_Output")

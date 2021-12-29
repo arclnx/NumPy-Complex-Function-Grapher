@@ -20,15 +20,7 @@ def ComplexToRGB(complex):
     """takes a complex number and returns a tuple of integer RGB values in the range [0,255]"""
     angle = np.nan_to_num(((np.angle(complex,deg=True)+360)%360))
     magnitude = np.absolute(complex)
-    rawColor =  hsl_to_rgb2(angle,1-np.nan_to_num(np.log2(magnitude))%1,.5)
+    rawColor =  hsl_to_rgb2(angle,
+                            1-0.5*(np.nan_to_num(np.log2(magnitude))%1),
+                            .5)
     return rawColor
-
-real = np.linspace(-1,1,10)
-complex = np.linspace(-1,1,10)
-real, complex = np.meshgrid(real, complex, indexing='ij')
-cplane = real + complex*1j
-print(ComplexToRGB(cplane))
-print("--------")
-print(ComplexToRGB(cplane).T)
-print(ComplexToRGB(cplane).T.shape)
-print(ComplexToRGB(cplane).T[0][0])
