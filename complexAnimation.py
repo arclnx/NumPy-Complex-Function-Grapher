@@ -79,8 +79,9 @@ class keyframe:
         print("╚══════════════════════════════")
         
         return(cplane)
-
+a=5
 myanim = animation()
+print(a)
 a = keyframe(length=10)
 b = keyframe(function = "x**2", length=4)
 myanim.addKeyframe(a)
