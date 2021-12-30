@@ -41,6 +41,8 @@ class animation:
 
                 frameNumber += 1
         renderer.render(frameData=keyframeData[-1], folderPath=folderPath, frameNumber=frameNumber)
+        print("╠══════════════════════════════")
+        print("║ saved a: " + folderPath + "\\" + str(frameNumber).rjust(4,"0") + ".png")
 
 class keyframe:
     """create a keyframe that holds data about the function, length, etc."""
@@ -74,10 +76,3 @@ class keyframe:
         print("╚══════════════════════════════")
         
         return(cplane)
-
-#myanim = animation()
-#a = keyframe(length=10)
-#b = keyframe(function = "x**2", length=4)
-#myanim.addKeyframe(a)
-#myanim.addKeyframe(b)
-#myanim.render(size=(1080,1080), folderPath="C:\\Users\\trevo\\Desktop\\Grapher_Output")
