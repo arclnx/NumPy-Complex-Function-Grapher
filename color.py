@@ -1,7 +1,28 @@
+"""
+Handles conversion between complex numbers and HSL and RGB colors
+"""
+
 import numpy as np
 
 def hsl_to_rgb2(H,S,L):
-    """takes H,S,L inputs, where H is [0,360], and S,L are [0,1], and returns integer RGB values in the form RGB, R,G,B are [0,255]"""
+    """
+    Convert an HSL color to an RGB one
+    
+    Parameters
+    ---
+    H : Real number ∈[0,360]
+        The hue of an HSL color
+    S : Real number ∈[0,1]
+        The saturation of an HSL color
+    V : Real number ∈[0,1]
+        The value of an HSL color
+        
+    Returns
+    ---
+    RGB Color : numpy array
+        A 1d array of the RGB compenets of an RGB color, where R,G,B ∈[0,255]
+    
+    """
 
     def max2(a,b):
         return np.where(a>b,a,b)
@@ -17,10 +38,22 @@ def hsl_to_rgb2(H,S,L):
     return np.array([f(0)*255,f(8)*255,f(4)*255]).astype(np.uint8)
 
 def ComplexToRGB(complex):
-    """takes a complex number and returns a tuple of integer RGB values in the range [0,255]"""
+    """
+    Take a complex number and return an RGB color
+    
+    Parameters
+    ---
+    complex : complex number
+        A complex number, can have inf or nan components
+    
+    Returns
+    ---
+    Color : numpy array
+        A 1d array of the RGB compenets of an RGB color, where R,G,B ∈[0,255]
+    """
     angle = np.nan_to_num(((np.angle(complex,deg=True)+360)%360))
     magnitude = np.absolute(complex)
-    rawColor =  hsl_to_rgb2(angle,
+    Color =  hsl_to_rgb2(angle,
                             1-0.5*(np.nan_to_num(np.log2(magnitude))%1),
                             .5)
-    return rawColor
+    return Color

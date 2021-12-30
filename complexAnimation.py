@@ -1,6 +1,6 @@
+
 import numpy as np
-from PIL import Image
-import color, render
+import renderer
 
 class animation:
     """Create an animation that holds keyframes"""
@@ -33,19 +33,14 @@ class animation:
                                      endpoint=False)
             for frame in frameData:
                     
-                render.render(frameData=frame, folderPath=folderPath, frameNumber= frameNumber)
-                # apply the complex->RGB function, then transpose to get the right shape
-                #renderedFrame = color.ComplexToRGB(frame)
+                renderer.render(frameData=frame, folderPath=folderPath, frameNumber= frameNumber)
 
-                # convert the np.ndarray to a PIL image
-                #frameImage = Image.fromarray(renderedFrame.T,"RGB")
-               
                 # save the image
-                #frameImage.save(filePath)
                 print("╠══════════════════════════════")
                 print("║ saved a: " + folderPath + "\\" + str(frameNumber).rjust(4,"0") + ".png")              
 
                 frameNumber += 1
+        renderer.render(frameData=keyframeData[-1], folderPath=folderPath, frameNumber=frameNumber)
 
 class keyframe:
     """create a keyframe that holds data about the function, length, etc."""
@@ -79,11 +74,10 @@ class keyframe:
         print("╚══════════════════════════════")
         
         return(cplane)
-a=5
-myanim = animation()
-print(a)
-a = keyframe(length=10)
-b = keyframe(function = "x**2", length=4)
-myanim.addKeyframe(a)
-myanim.addKeyframe(b)
-myanim.render(size=(1080,1080), folderPath="C:\\Users\\trevo\\Desktop\\Grapher_Output")
+
+#myanim = animation()
+#a = keyframe(length=10)
+#b = keyframe(function = "x**2", length=4)
+#myanim.addKeyframe(a)
+#myanim.addKeyframe(b)
+#myanim.render(size=(1080,1080), folderPath="C:\\Users\\trevo\\Desktop\\Grapher_Output")
