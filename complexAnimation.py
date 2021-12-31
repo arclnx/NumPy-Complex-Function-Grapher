@@ -37,12 +37,12 @@ class animation:
 
                 # save the image
                 print("╠══════════════════════════════")
-                print("║ saved a: " + folderPath + "\\" + str(frameNumber).rjust(4,"0") + ".png")              
+                print("║ saved at: " + folderPath + "\\" + str(frameNumber).rjust(4,"0") + ".png")              
 
                 frameNumber += 1
         renderer.render(frameData=keyframeData[-1], folderPath=folderPath, frameNumber=frameNumber)
         print("╠══════════════════════════════")
-        print("║ saved a: " + folderPath + "\\" + str(frameNumber).rjust(4,"0") + ".png")
+        print("║ saved at: " + folderPath + "\\" + str(frameNumber).rjust(4,"0") + ".png")
 
 class keyframe:
     """create a keyframe that holds data about the function, length, etc."""
