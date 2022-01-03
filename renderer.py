@@ -2,7 +2,7 @@
 Handles converting complex data arrays into images and saving them
 """
 
-import color
+import color as color
 from PIL import Image
 
 def render(frameData, folderPath, frameNumber):
