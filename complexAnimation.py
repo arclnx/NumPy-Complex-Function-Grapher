@@ -33,14 +33,14 @@ class animation:
                                      endpoint=False)
             for frame in frameData:
                     
-                renderer.render(frameData=frame, folderPath=folderPath, frameNumber= frameNumber)
+                renderer.renderFrames(frameData=frame, folderPath=folderPath, frameNumber= frameNumber)
 
                 # save the image
                 print("╠══════════════════════════════")
                 print("║ saved at: " + folderPath + "\\" + str(frameNumber).rjust(4,"0") + ".png")              
 
                 frameNumber += 1
-        renderer.render(frameData=keyframeData[-1], folderPath=folderPath, frameNumber=frameNumber)
+        renderer.renderFrames(frameData=keyframeData[-1], folderPath=folderPath, frameNumber=frameNumber)
         print("╠══════════════════════════════")
         print("║ saved at: " + folderPath + "\\" + str(frameNumber).rjust(4,"0") + ".png")
 

@@ -1,11 +1,11 @@
 """
-Handles converting complex data arrays into images and saving them
+Handles converting complex data arrays into images and saving them, as well as turning series of images to toa video
 """
 
 import color as color
 from PIL import Image
 
-def render(frameData, folderPath, frameNumber):
+def renderFrames(frameData, folderPath, frameNumber):
     """
     Apply the complex->RGB function to a 2d array, then save it as a PNG at the location specified
 
