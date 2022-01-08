@@ -5,4 +5,4 @@ b = anim.keyframe(function = "1j/x", length=4)
 myanim.addKeyframe(a)
 myanim.addKeyframe(b)
 myanim.render(size=(1440,1440), folderPath="C:\\Users\\trevo\\Desktop\\Grapher_Output")
-#test
+#sdf
