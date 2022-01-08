@@ -1,6 +1,6 @@
 import complexAnimation as anim
 myanim = anim.animation()
-a = anim.keyframe(function ="x", length=60)
+a = anim.keyframe(function ="x", length=4)
 b = anim.keyframe(function = "1j/x", length=4)
 myanim.addKeyframe(a)
 myanim.addKeyframe(b)
