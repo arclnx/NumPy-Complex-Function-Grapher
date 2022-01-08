@@ -3,7 +3,9 @@ Handles conversion between complex numbers and HSL and RGB colors
 """
 
 import numpy as np
+import numba
 
+@numba.jit
 def hsl_to_rgb2(H,S,L):
     """
     Convert an HSL color to an RGB one
@@ -37,6 +39,7 @@ def hsl_to_rgb2(H,S,L):
 
     return np.array([f(0)*255,f(8)*255,f(4)*255]).astype(np.uint8)
 
+@numba.jit
 def ComplexToRGB(complex):
     """
     Take a complex number and return an RGB color
