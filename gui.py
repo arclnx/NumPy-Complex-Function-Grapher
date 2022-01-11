@@ -1,9 +1,21 @@
 import wx
 
-app = wx.App()
 
-frame = wx.Frame(None, title="Complex Function Grapher")
+class Gui(wx.Frame):
 
-frame.Show()
+    def __init__(self, parent, title):
+        super(Gui, self).__init__(parent, title=title,
+            size=(350, 250))
+        
+        self.Center()
 
-app.MainLoop()
+def main():
+
+    app = wx.App()
+    ex = Gui(None, title='Sizing')
+    ex.Show()
+    app.MainLoop()
+
+
+if __name__ == '__main__':
+    main()
