@@ -1,8 +1,8 @@
 import complexAnimation as anim
 
 myanim = anim.animation()
-a = anim.keyframe(function ="x", length=60)
-b = anim.keyframe(function = "np.sqrt(x)", length=4)
+a = anim.keyframe(function = "x",          min=(-8,-8), max=(8,8), length=60)
+b = anim.keyframe(function = "x**-1", min=(-8,-8), max=(8,8), length=4)
 myanim.addKeyframe(a)
 myanim.addKeyframe(b)
 
