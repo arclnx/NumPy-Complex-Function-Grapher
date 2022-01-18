@@ -53,7 +53,7 @@ def ComplexToRGB(complex):
     """
     angle = np.nan_to_num(((np.angle(complex,deg=True)+360)%360))
     magnitude = np.absolute(complex)
-    Color =  hsl_to_rgb2(angle,
+    color =  hsl_to_rgb2(angle,
                             1-0.125*(np.nan_to_num(np.log2(magnitude))%1),
                             .5 - 0.125*(np.nan_to_num(np.log2(magnitude))%1))
-    return Color
+    return color
