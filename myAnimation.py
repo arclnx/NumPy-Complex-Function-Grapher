@@ -1,7 +1,7 @@
 import complexAnimation as anim
 
 myanim = anim.animation()
-a = anim.keyframe(function = "x",          min=(-8,-8), max=(8,8), length=60)
+a = anim.keyframe(function = "x",          smin=(-8,-8), max=(8,8), length=60)
 b = anim.keyframe(function = "np.sinh(x)", min=(-8,-8), max=(8,8), length=4)
 myanim.addKeyframe(a)
 myanim.addKeyframe(b)
