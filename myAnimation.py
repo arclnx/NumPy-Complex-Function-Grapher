@@ -2,7 +2,7 @@ import complexAnimation as anim
 
 myanim = anim.animation()
 a = anim.keyframe(function = "x",                 min=(-8,-8), max=(8,8), length=60)
-b = anim.keyframe(function = "np.pi**(np.pi*x)", min=(-8,-8), max=(8,8), length=4)
+b = anim.keyframe(function = "np.e**(np.pi*x)", min=(-8,-8), max=(8,8), length=4)
 myanim.addKeyframe(a)
 myanim.addKeyframe(b)
 
