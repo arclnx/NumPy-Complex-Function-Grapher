@@ -1,10 +1,10 @@
 import complexAnimation as anim
 
 myanim = anim.animation()
-a = anim.keyframe(function = "x",                 min=(-8,-8), max=(8,8), length=60)
+a = anim.keyframe(function = "((1+2.236068)**x - (1-2.236068)**x)/(2**x * 2.236068)",                  min=(-8,-8), max=(8,8), length=60)
 b = anim.keyframe(function = "2**x", min=(-8,-8), max=(8,8), length=4)
 myanim.addKeyframe(a)
-myanim.addKeyframe(b)
+#myanim.addKeyframe(b)
 
-myanim.render(size=(1440,1440), folderPath="C:\\Users\\TAK\\Desktop\\Python\\Grapher_Output\\f(x)=x to f(x)=2^x")
+myanim.render(size=(1440,1440), folderPath="C:\\Users\\TAK\\Desktop\\Python\\Grapher_Output\\f(x)=fib(x)")
 #myanim.render(size=(1440,1440), folderPath="C:\\Users\\trevo\\Desktop\\Grapher_Output")
