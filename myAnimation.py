@@ -6,5 +6,5 @@ b = anim.keyframe(function = "2**x", min=(-8,-8), max=(8,8), length=4)
 myanim.addKeyframe(a)
 #myanim.addKeyframe(b)
 
-myanim.render(size=(1440*1,1440*1), folderPath="C:\\Users\\TAK\\Desktop\\Python\\Grapher_Output\\f(x)=fib(x)")
+myanim.render(size=(1440*4,1440*4), folderPath="C:\\Users\\TAK\\Desktop\\Python\\Grapher_Output\\f(x)=fib(x)")
 #myanim.render(size=(1440,1440), folderPath="C:\\Users\\trevo\\Desktop\\Grapher_Output")
