@@ -1,8 +1,8 @@
 import complexAnimation as anim
 
 myanim = anim.animation()
-a = anim.keyframe(function = "(1-x)**(2/(x**2+1j))/((2j-x)**2)",                  min=(-3,-3), max=(3,3), length=60)
-b = anim.keyframe(function = "2**x", min=(-8,-8), max=(8,8), length=4)
+a = anim.keyframe(function = "(1-x)**(2/(x**2+1j))/((2j-x)**2)",  min=(-3,-3), max=(3,3), length=60)
+b = anim.keyframe(function = "2**x",                              min=(-8,-8), max=(8,8), length=4)
 myanim.addKeyframe(a)
 #myanim.addKeyframe(b)
 
