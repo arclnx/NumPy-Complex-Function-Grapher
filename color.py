@@ -3,6 +3,7 @@ Handles conversion between complex numbers and HSL and RGB colors
 """
 
 import numpy as np
+from numba import jit
 
 def hsl_to_rgb2(H,S,L):
     """
@@ -23,10 +24,10 @@ def hsl_to_rgb2(H,S,L):
         A 1d array of the RGB compenets of an RGB color, where R,G,B ∈[0,255]
     
     """
-
+    
     def max2(a,b):
         return np.where(a>b,a,b)
-
+    
     def min2(a,b):
         return np.where(a<b,a,b)
 
