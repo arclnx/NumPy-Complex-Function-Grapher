@@ -5,11 +5,11 @@ def mosaic(function, pixelSize, min, max, tiledSize, folderPath):
     tiledWidth = tiledSize[0]
     tiledHeight = tiledSize[1]
     tilePixelSize = (pixelSize[0]//tiledWidth,pixelSize[0]//tiledHeight)
-    
+
     # Calculate x and y coordinates by linearly spacing bewteen max and min
     x_coords = np.linspace(min[0],max[0],tiledWidth+1)
     y_coords = np.linspace(min[1],max[1],tiledHeight+1)
-    
+
     # render each image in the grid
     for row in range(tiledHeight):
         for column in range(tiledWidth):
@@ -19,5 +19,4 @@ def mosaic(function, pixelSize, min, max, tiledSize, folderPath):
                              max=(x_coords[row], y_coords[column]),
                              length=1))
             tile.render(size=tilePixelSize, folderPath=folderPath)
-            
-    
+

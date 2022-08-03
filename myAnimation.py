@@ -9,7 +9,7 @@ import mosaic
 #myanim.render(size=(1440,1440), folderPath="C:\\Users\\trevo\\Desktop\\Grapher_Output")
 
 mosaic.mosaic(function="(x+1j*np.sin(x))/(1j*np.tanh(1/(x**2j)))",
-              pixelSize=(1920,1080),
+              pixelSize=(128,128),
               min=(-4,-4), max=(4,4),
               tiledSize=(4,4),
               folderPath="C:\\Users\\TAK\\Desktop\\Python\\Grapher_Output\\mosaic")
