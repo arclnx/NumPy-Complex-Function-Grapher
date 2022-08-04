@@ -16,7 +16,7 @@ def mosaic(function, pixelSize, min, max, tiledSize, folderPath):
             tile = anim.animation()
             tile.addKeyframe(anim.keyframe(function=function,
                              min=(x_coords[row], y_coords[column]),
-                             max=(x_coords[row], y_coords[column]),
+                             max=(x_coords[row+1], y_coords[column+1]),
                              length=1))
-            tile.render(size=tilePixelSize, folderPath=folderPath, suffix="("+str(column)+","+str(row)+"")
+            tile.render(size=tilePixelSize, folderPath=folderPath, suffix="("+str(column)+","+str(row)+")")
 
