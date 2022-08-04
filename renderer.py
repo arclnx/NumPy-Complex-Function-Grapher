@@ -5,7 +5,7 @@ Handles converting complex data arrays into images and saving them, as well as t
 import color as color
 from PIL import Image
 
-def renderFrames(frameData, folderPath, frameNumber):
+def renderFrames(frameData, folderPath, frameNumber,suffix):
     """
     Apply the complex->RGB function to a 2d array, then save it as a PNG at the location specified
 
@@ -29,7 +29,7 @@ def renderFrames(frameData, folderPath, frameNumber):
     frameImage = Image.fromarray(renderedFrame.T,"RGB")
     
     # set the filepath
-    filePath = folderPath + "\\" + str(frameNumber).rjust(4,"0") + ".png"
+    filePath = folderPath + "\\" + str(frameNumber).rjust(4,"0") + suffix + ".png"
     
     # save the image
     frameImage.save(filePath)

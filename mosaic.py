@@ -18,5 +18,5 @@ def mosaic(function, pixelSize, min, max, tiledSize, folderPath):
                              min=(x_coords[row], y_coords[column]),
                              max=(x_coords[row], y_coords[column]),
                              length=1))
-            tile.render(size=tilePixelSize, folderPath=folderPath)
+            tile.render(size=tilePixelSize, folderPath=folderPath, suffix="("+str(column)+","+str(row)+"")
 

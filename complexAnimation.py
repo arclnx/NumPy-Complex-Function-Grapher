@@ -10,7 +10,7 @@ class animation:
     def addKeyframe(self, keyframe):
         self.keyframes.append(keyframe)
 
-    def render(self, size=(1920,1080), folderPath=""):
+    def render(self, size=(1920,1080), folderPath="", suffix=""):
         """render an animation, and save the frames in the specified location"""
         
         # create an array of the data for each keyframe
@@ -33,14 +33,14 @@ class animation:
                                      endpoint=False)
             for frame in frameData:
                     
-                renderer.renderFrames(frameData=frame, folderPath=folderPath, frameNumber= frameNumber)
+                renderer.renderFrames(frameData=frame, folderPath=folderPath, frameNumber=frameNumber,suffix=suffix)
 
                 # save the image
                 print("╠══════════════════════════════")
                 print("║ frame saved at: " + folderPath + "\\" + str(frameNumber).rjust(4,"0") + ".png")              
 
                 frameNumber += 1
-        renderer.renderFrames(frameData=keyframeData[-1], folderPath=folderPath, frameNumber=frameNumber)
+        renderer.renderFrames(frameData=keyframeData[-1], folderPath=folderPath, frameNumber=frameNumber,suffix=suffix)
         print("╠══════════════════════════════")
         print("║ frame saved at: " + folderPath + "\\" + str(frameNumber).rjust(4,"0") + ".png")
 
