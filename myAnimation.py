@@ -8,8 +8,8 @@ import mosaic
 #myanim.render(size=(1440*5,1440*5), folderPath="C:\\Users\\TAK\\Desktop\\Python\\Grapher_Output\\f(x)=fib(x)")
 #myanim.render(size=(1440,1440), folderPath="C:\\Users\\trevo\\Desktop\\Grapher_Output")
 
-mosaic.mosaic(function="(x+1j*np.sin(x))/(1j*np.tanh(1/(x**2j)))",
-              pixelSize=(7680,4320),
+mosaic.mosaic(function="x",
+              pixelSize=(1080,1080),
               min=(-4,-4), max=(4,4),
               tiledSize=(2,2),
               folderPath="C:\\Users\\TAK\\Desktop\\Python\\Grapher_Output\\mosaic")
