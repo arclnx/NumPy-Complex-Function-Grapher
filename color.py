@@ -3,7 +3,7 @@ Handles conversion between complex numbers and HSL and RGB colors
 """
 
 import numpy as np
-from numba import jit
+#from numba import jit
 
 def hsl_to_rgb2(H,S,L):
     """
