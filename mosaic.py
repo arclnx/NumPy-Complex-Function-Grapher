@@ -4,7 +4,7 @@ import numpy as np
 def mosaic(function, pixelSize, min, max, tiledSize, folderPath):
     tiledWidth = tiledSize[0]
     tiledHeight = tiledSize[1]
-    tilePixelSize = (pixelSize[0]//tiledWidth,pixelSize[0]//tiledHeight)
+    tilePixelSize = (pixelSize[0]//tiledWidth,pixelSize[1]//tiledHeight)
 
     # Calculate x and y coordinates by linearly spacing bewteen max and min
     x_coords = np.linspace(min[0],max[0],tiledWidth+1)
