@@ -8,7 +8,7 @@ myanim.addKeyframe(a)
 #myanim.render(size=(1440,1440), folderPath="C:\\Users\\TAK\\Desktop\\Python\\Grapher_Output\\f(x)=fib(x)")
 
 mosaic.mosaic(function="(x+1j*np.sin(x))/(1j*np.tanh(1/(x**2j)))",
-              pixelSize=(128,128*2),
-              min=(-4,-8), max=(4,8),
-              tiledSize=(4,4),
+              pixelSize=(1920*32, 1080*32),
+              min=(-1,-1080/1920), max=(1,1080/1920),
+              tiledSize=(16,16),
               folderPath="C:\\Users\\TAK\\Desktop\\Python\\Grapher_Output\\mosaic")
